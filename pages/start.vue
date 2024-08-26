@@ -35,7 +35,7 @@
             </p>
         </div>
 
-        <NuxtLink to="/list_people">
+        <NuxtLink to="/people_list">
             <button>
                 Lets Start!
             </button>
