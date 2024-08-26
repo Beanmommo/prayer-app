@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "key": "1",
+    "name": "John Brown"
+  },
+  {
+    "key": "2",
+    "name": "Jim Green"
+  }
+]

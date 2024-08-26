@@ -1,10 +1,15 @@
-import type { People } from "~/types/data";
-
 export const usePrayerQueueStore = defineStore("prayerQueue", () => {
-  const prayerQueue = ref([] as People[]);
+  const prayerQueue = ref([] as string[]);
 
-  function startPrayerQueue(peopleList: People[]) {
-    prayerQueue.value = peopleList;
+  function startPrayerQueue(queueList: string[]) {
+    // string can be Key for people or just name
+    let queueDataJSON = JSON.stringify(queueList);
+    $fetch("/api/prayer", {
+      method: "POST",
+      body: {
+        queueData: queueDataJSON,
+      },
+    });
   }
 
   return {

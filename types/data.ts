@@ -4,7 +4,7 @@ export type UserStats = {
 };
 
 export type People = {
-  key?: string;
+  key: string;
   name: string;
   photoUrl?: string;
   prayers: Prayer[];

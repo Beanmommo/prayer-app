@@ -1,15 +1,16 @@
 <script setup lang="ts">
+import { usePeopleStore } from '~/store/people';
 import { usePrayerQueueStore } from '~/store/prayerQueue';
-import type { People } from '~/types/data';
 
 const prayerQueueStore = usePrayerQueueStore()
+const peopleStore = usePeopleStore()
+const peopleListForm = ref([] as string[])
 
-const peopleListForm = ref([] as People[])
-
-const people = ref({} as People);
+const nameField = ref('');
 
 function clickHandlerAdd() {
-    peopleListForm.value.push(people.value);
+    peopleListForm.value.push(nameField.value);
+    nameField.value = '';
 }
 
 function clickHandlerStart() {
@@ -20,9 +21,11 @@ function clickHandlerStart() {
 
 <template>
     <template v-for="people in peopleListForm">
-        <PeopleListCard :people="people" />
+        <PeopleListCard>
+            {{ people }}
+        </PeopleListCard>
     </template>
-    <input type="text" placeholder="name" v-model="people.name" />
+    <input type="text" placeholder="name" v-model="nameField" v-on:keyup.enter="clickHandlerAdd" />
     <button @click="clickHandlerAdd">add</button>
     <div>
         <button @click="clickHandlerStart">Start Praying</button>

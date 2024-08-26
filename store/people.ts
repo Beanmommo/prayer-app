@@ -9,12 +9,8 @@ export const usePeopleStore = defineStore("people", () => {
     peopleList.value.push(people);
   };
 
-  async function fetchPeople() {
-    peopleList.value = useCloneDeep(peopleData as People[]);
-  }
-
   return {
     peopleList,
-    addPeople: savePeople,
+    savePeople,
   };
 });
