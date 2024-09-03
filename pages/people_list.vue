@@ -3,7 +3,6 @@ import { usePeopleStore } from '~/store/people';
 import { usePrayerQueueStore } from '~/store/prayerQueue';
 
 const prayerQueueStore = usePrayerQueueStore()
-const peopleStore = usePeopleStore()
 const peopleListForm = ref([] as string[])
 
 const nameField = ref('');
@@ -15,6 +14,7 @@ function clickHandlerAdd() {
 
 function clickHandlerStart() {
     prayerQueueStore.startPrayerQueue(peopleListForm.value);
+
 }
 
 </script>
