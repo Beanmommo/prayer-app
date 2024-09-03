@@ -22,3 +22,6 @@ logs
 .env
 .env.*
 !.env.example
+
+# Prayer Data file
+.assets/data
